@@ -68,6 +68,10 @@ npm run dist
 - 应用内的文件夹按钮可以直接打开数据目录，便于备份或迁移。
 - Windows 便携版 exe 未做商业代码签名，首次运行时可能出现 SmartScreen 提示。
 
+## 反馈
+
+遇到问题或有功能建议，可以到 [Issues](https://github.com/729149195/quadrant-pop-todo/issues) 反馈。发布和推广材料放在 [`docs/launch`](docs/launch)。
+
 ## License
 
 [MIT](LICENSE)

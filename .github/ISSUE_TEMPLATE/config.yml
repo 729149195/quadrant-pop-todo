@@ -1,0 +1,8 @@
+blank_issues_enabled: true
+contact_links:
+  - name: Download latest release
+    url: https://github.com/729149195/quadrant-pop-todo/releases/latest
+    about: Get the latest Windows portable exe.
+  - name: Read the launch notes
+    url: https://github.com/729149195/quadrant-pop-todo/tree/main/docs/launch
+    about: Launch copy, checklist, and social assets.
