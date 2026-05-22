@@ -1,0 +1,111 @@
+<!doctype html>
+<html lang="zh-CN">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Quadrant Pop Todo</title>
+    <link rel="stylesheet" href="./styles.css?v=0.2.1" />
+  </head>
+  <body>
+    <div class="app-shell">
+      <header class="titlebar">
+        <div class="brand">
+          <div class="brand-mark" aria-hidden="true">
+            <span></span>
+            <span></span>
+            <span></span>
+            <span></span>
+          </div>
+          <div class="brand-copy">
+            <h1>Quadrant Pop</h1>
+            <p id="shortcutLabel">Ctrl + Alt + Space</p>
+          </div>
+        </div>
+
+        <div class="title-drag-zone"></div>
+
+        <div class="window-actions">
+          <button class="caption-button utility-button" id="pinBtn" aria-label="固定窗口" title="固定窗口">
+            <svg class="svg-icon" viewBox="0 0 24 24" aria-hidden="true"><path d="M8 4h8l-1 6 3 3v2H6v-2l3-3-1-6Zm4 11v5"/></svg>
+          </button>
+          <button class="caption-button utility-button" id="openDataBtn" aria-label="打开数据目录" title="打开数据目录">
+            <svg class="svg-icon" viewBox="0 0 24 24" aria-hidden="true"><path d="M4 7.5h6l2 2h8v8.5a2 2 0 0 1-2 2H6a2 2 0 0 1-2-2V7.5Zm0 0V6a2 2 0 0 1 2-2h4l2 2h6a2 2 0 0 1 2 2v1.5"/></svg>
+          </button>
+          <button class="caption-button minimize-button" id="minimizeBtn" aria-label="最小化到托盘" title="最小化到托盘">
+            <svg class="svg-icon" viewBox="0 0 24 24" aria-hidden="true"><path d="M6 12h12"/></svg>
+          </button>
+          <button class="caption-button close-button" id="closeBtn" aria-label="关闭窗口" title="关闭窗口">
+            <svg class="svg-icon" viewBox="0 0 24 24" aria-hidden="true"><path d="M7 7l10 10M17 7 7 17"/></svg>
+          </button>
+        </div>
+      </header>
+
+      <main>
+        <section class="composer" aria-label="快速记录">
+          <input id="taskTitle" type="text" maxlength="120" placeholder="记录一件事" autocomplete="off" />
+          <input id="taskNote" type="text" maxlength="600" placeholder="备注" autocomplete="off" />
+          <div class="toggle-group" aria-label="象限">
+            <button class="toggle active" id="importantToggle" type="button" aria-pressed="true">重要</button>
+            <button class="toggle active" id="urgentToggle" type="button" aria-pressed="true">紧急</button>
+          </div>
+          <button class="primary-button" id="addTaskBtn" type="button">加入</button>
+        </section>
+
+        <section class="control-strip">
+          <label class="search-box">
+            <span><svg class="svg-icon" viewBox="0 0 24 24" aria-hidden="true"><path d="m15.5 15.5 4 4M10.5 17a6.5 6.5 0 1 1 0-13 6.5 6.5 0 0 1 0 13Z"/></svg></span>
+            <input id="searchInput" type="search" placeholder="搜索" autocomplete="off" />
+          </label>
+
+          <div class="filter-tabs" role="tablist" aria-label="筛选">
+            <button class="active" type="button" role="tab" aria-selected="true" data-filter="active">进行中</button>
+            <button type="button" role="tab" aria-selected="false" data-filter="all">全部</button>
+            <button type="button" role="tab" aria-selected="false" data-filter="done">完成</button>
+          </div>
+
+          <div class="mini-stats" aria-label="概览">
+            <span><strong id="activeCount">0</strong> 进行中</span>
+            <span><strong id="doneCount">0</strong> 完成</span>
+          </div>
+
+          <div class="next-action">
+            <span>下一步</span>
+            <strong id="nextTask">暂无</strong>
+          </div>
+
+          <button class="subtle-button" id="archiveDoneBtn" type="button">清理</button>
+        </section>
+
+        <section class="quadrant-grid" id="quadrantGrid" aria-label="四象限待办"></section>
+      </main>
+
+      <div class="reminder-overlay hidden" id="reminderOverlay" role="dialog" aria-modal="true" aria-labelledby="reminderTitle">
+        <div class="reminder-card">
+          <div class="reminder-card-header">
+            <span class="reminder-glyph" aria-hidden="true"></span>
+            <div>
+              <h2 id="reminderTitle">提醒时间到了</h2>
+              <p id="reminderTime">现在</p>
+            </div>
+          </div>
+          <p class="reminder-task-title" id="reminderTaskTitle"></p>
+          <p class="reminder-task-note" id="reminderTaskNote"></p>
+          <div class="reminder-actions">
+            <button class="subtle-button" id="reminderSnoozeBtn" type="button">10 分钟后</button>
+            <button class="subtle-button" id="reminderDoneBtn" type="button">标记完成</button>
+            <button class="primary-button" id="reminderDismissBtn" type="button">知道了</button>
+          </div>
+        </div>
+      </div>
+
+      <div class="status-toast hidden" id="statusToast" role="status" aria-live="polite">
+        <span id="statusText"></span>
+        <button id="statusAction" type="button" hidden></button>
+      </div>
+
+      <div class="resize-grip" id="resizeGrip" title="拖动调整窗口大小" aria-hidden="true"></div>
+    </div>
+
+    <script src="./renderer.js?v=0.2.0"></script>
+  </body>
+</html>

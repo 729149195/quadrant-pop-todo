@@ -1,0 +1,48 @@
+{
+  "name": "quadrant-pop-todo",
+  "version": "0.2.1",
+  "description": "A Windows hotkey popup todo app with Eisenhower quadrants.",
+  "author": "Quadrant Pop Todo",
+  "license": "MIT",
+  "main": "main.js",
+  "private": true,
+  "homepage": "https://github.com/729149195/quadrant-pop-todo#readme",
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/729149195/quadrant-pop-todo.git"
+  },
+  "bugs": {
+    "url": "https://github.com/729149195/quadrant-pop-todo/issues"
+  },
+  "scripts": {
+    "start": "electron .",
+    "smoke": "electron . --smoke-test",
+    "pack": "electron-builder --dir",
+    "dist": "electron-builder --win portable"
+  },
+  "build": {
+    "appId": "com.local.quadrant-pop-todo",
+    "productName": "Quadrant Pop Todo",
+    "directories": {
+      "output": "dist"
+    },
+    "files": [
+      "main.js",
+      "preload.js",
+      "build/icon.ico",
+      "build/tray.ico",
+      "src/**/*"
+    ],
+    "win": {
+      "icon": "build/icon.ico",
+      "target": [
+        "portable"
+      ],
+      "artifactName": "QuadrantPopTodo-${version}.${ext}"
+    }
+  },
+  "devDependencies": {
+    "electron": "^42.2.0",
+    "electron-builder": "^26.8.1"
+  }
+}
