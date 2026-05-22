@@ -1,5 +1,10 @@
 # Changelog
 
+## v0.2.2 - 2026-05-22
+
+- Show todo notes directly on task cards when a note exists.
+- Keep empty-note tasks compact while preserving click-to-edit behavior.
+
 ## v0.2.1 - 2026-05-22
 
 - Added task reminders with due-time popup, snooze, dismiss, and mark-done actions.

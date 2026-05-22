@@ -1,6 +1,6 @@
 {
   "name": "quadrant-pop-todo",
-  "version": "0.2.1",
+  "version": "0.2.2",
   "description": "A Windows hotkey popup todo app with Eisenhower quadrants.",
   "author": "Quadrant Pop Todo",
   "license": "MIT",
